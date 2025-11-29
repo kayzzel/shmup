@@ -5,8 +5,8 @@
 
 int	gaming(t_game *game)
 {
-	game.player.live = 3;
-	game.player.score = 500;
+	game->player.live = 3;
+	game->player.score = 500;
 	while (1)
 	{
 		print_fps();
