@@ -36,18 +36,22 @@ int	game_loop(t_game *game)
 		actualize_oponent(&oponents, counter, &projectiles);
 		player_action(ch, &game->player, &projectiles);
 		print_ui(*game, ch);
+
 		refresh();
-		player_action(ch, &game->player, &projectiles);
 		werase(game_win);
+
 		wattron(game_win, COLOR_PAIR(1));
 		box(game_win, ACS_VLINE, ACS_HLINE);
 		wattroff(game_win, COLOR_PAIR(1));
+
 		render_projectiles(&projectiles);
 		render_oponents(&oponents, &projectiles, &game->player);
-		render_obj(game->player.y, game->player.x, game->player.icon);
+		render_player(&game->player, &projectiles, &oponents);
+
 		print_fps(ch);
 		wrefresh(game_win);
 		counter++;
+		(game->player.time)++;
 	}
 	ft_lstclear(&projectiles, free);
 	ft_lstclear(&oponents, free);

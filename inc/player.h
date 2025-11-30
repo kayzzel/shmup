@@ -52,5 +52,6 @@ int						game_loop(t_game *game);
 t_player				init_player(void);
 void					player_action(int c, t_player *player,
 							t_list **projectile);
+void	render_player(t_player *player, t_list **projectiles, t_list **oponents);
 
 #endif

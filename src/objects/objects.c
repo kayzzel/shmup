@@ -19,22 +19,22 @@ int	obj_move(int *row, int *col, char direction)
 	getmaxyx(game_win, end_rows, end_cols);
 	if (direction == 'r')
 	{
-		if (*col == end_cols - 2) return (-1);
+		if (*col >= end_cols - 2) return (-1);
 		(*col)++;
 	}
 	else if (direction == 'l')
 	{
-		if (*col == 1) return (-1);
+		if (*col <= 1) return (-1);
 		(*col)--;
 	}
 	else if (direction == 'u')
 	{
-		if (*row == 1) return (-1) ;
+		if (*row <= 1) return (-1) ;
 		(*row)--;
 	}
 	else if (direction == 'd')
 	{
-		if (*row == end_rows - 2) return (-1) ;
+		if (*row >= end_rows - 2) return (-1) ;
 		(*row)++;
 	}
 	return (0);

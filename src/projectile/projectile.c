@@ -33,8 +33,10 @@ void	actualize_projectiles(t_list **projectiles, int counter)
 				(projectile->direction)) == -1)
 			current = lstdel_relink(projectiles, current, last);
 		else
+		{
+			last = current;
 			current = current->next;
-		last = current;
+		}
 	}
 }
 
@@ -82,6 +84,10 @@ void	throw_projectile(int row, int column, char icon, char direction,
 	t_projectile	*projectile;
 	t_list			*list;
 
+	if (direction == 'r') column++;
+	if (direction == 'l') column--;
+	if (direction == 'u') row--;
+	if (direction == 'd') row++;
 	projectile = new_projectile(row, column, icon, direction);
 	if (!projectile)
 		return ;

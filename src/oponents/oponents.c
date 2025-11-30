@@ -12,7 +12,7 @@
 
 #include "objects.h"
 #include "oponents.h"
-#include <stdlib.h>
+#include "shmup.h"
 
 void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
 {
@@ -30,13 +30,15 @@ void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
 	{
 		oponent = (t_oponent *)current->content;
 		if ((rand() % 100 + 1) % 20 == 0)
-			throw_projectile((oponent->y), (oponent->x), '-',
+			throw_projectile((oponent->y), (oponent->x - 1), '-',
 				(oponent->direction), projectiles);
 		if (obj_move(&(oponent->y), &(oponent->x), (oponent->direction)) == -1)
 			current = lstdel_relink(oponents, current, last);
 		else
+		{
+			last = current;
 			current = current->next;
-		last = current;
+		}
 	}
 }
 
@@ -82,9 +84,12 @@ void	spawn_oponent(t_list **oponents)
 {
 	t_oponent	*oponent;
 	t_list		*list;
+	int	end_rows, end_cols;
 
-	oponent = new_oponent(((rand() % (END_LINE - START_LINE)) + START_LINE),
-			END_COL, '&', 'l');
+	getmaxyx(game_win, end_rows, end_cols);
+
+	oponent = new_oponent(((rand() % (end_rows - 3)) + 1),
+			end_cols - 2, '&', 'l');
 	if (!oponent)
 		return ;
 	list = ft_lstnew((void *)oponent);

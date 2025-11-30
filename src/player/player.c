@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "player.h"
+#include "oponents.h"
 #include "projectile.h"
 #include "objects.h"
 
@@ -63,4 +64,20 @@ void	player_action(int c, t_player *player, t_list **projectile)
 		if (c == ' ')
 			throw_projectile(player->y, player->x, 'o', player->direction, projectile);
 	}
+}
+
+void	render_player(t_player *player, t_list **projectiles, t_list **oponents)
+{
+	if (render_obj(player->y, player->x, player->icon) == -1)
+	{
+		kill_projectile(projectiles, player->y, player->x);
+		kill_oponent(oponents, player->y, player->x);
+		if (player->invincibility == 0)
+		{
+			(player->lives)--;
+			player->invincibility = 181;
+		}
+	}
+	if (player->invincibility != 0)
+		(player->invincibility)--;
 }
