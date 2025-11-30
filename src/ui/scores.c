@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 10:32:21 by enchevri          #+#    #+#             */
-/*   Updated: 2025/11/30 11:53:40 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 14:00:47 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	print_score(t_game game)
 
 	getmaxyx(score_win, max_y, max_x);
 	mvwprintw(score_win, max_y / 2 - 1, max_x / 2 - 3, "SCORES");
-	sprintf(score_str, "%d", game.player.score);
+	sprintf(score_str, "%d", game.player.score * 100);
 	score_len = strlen(score_str);
 	mvwprintw(score_win, max_y / 2 + 1, max_x / 2 - (score_len / 2), "%d",
 		game.player.score);
