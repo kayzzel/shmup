@@ -39,8 +39,9 @@ PROJECTILE_SRC	:= projectile/projectile.c
 
 OPONENTS_SRC	:= oponents/oponents.c
 
-PLAYER_SRCS		:=	player/game_loop.c \
-					player/player.c
+PLAYER_SRCS		:=	player/player.c
+
+GAME_SRCS		:=	game/game_loop.c
 
 MAIN_SRCS		:=	main.c
 
@@ -52,7 +53,8 @@ SRCS			:=	$(addprefix $(SRC_DIR), \
 					$(OBJECTS_SRC) \
 					$(PROJECTILE_SRC) \
 					$(LINKED_LIST_SRC) \
-					$(OPONENTS_SRC))
+					$(OPONENTS_SRC) \
+					$(GAME_SRCS))
 
 #-------------------------------- OBJECTS ------------------------------------#
 
