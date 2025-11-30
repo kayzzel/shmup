@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:50:08 by enchevri          #+#    #+#             */
-/*   Updated: 2025/11/30 15:37:49 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 15:52:36 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define GAME_WIDTH (5 * STAT_WIDTH)
 # define MIN_WIDTH 80
 # define MIN_HEIGHT 20
-#define FRAME_RATE 120
+#define FRAME_RATE 60
 
 // GLOBAL
 
