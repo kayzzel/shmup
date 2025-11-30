@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "explosion.h"
 #include "objects.h"
 #include "oponents.h"
 #include "shmup.h"
 
-void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
+void		actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
 {
 	t_list		*last;
 	t_list		*current;
@@ -102,7 +103,7 @@ void	spawn_oponent(t_list **oponents)
 }
 
 void	render_oponents(t_list **oponents, t_list **projectiles,
-		t_player *player)
+		t_player *player, t_list **explosions)
 {
 	t_list		*last;
 	t_list		*current;
@@ -118,6 +119,7 @@ void	render_oponents(t_list **oponents, t_list **projectiles,
 		if (render_obj(oponent->y, oponent->x, oponent->icon, 4) == -1)
 		{
 			kill_projectile(projectiles, oponent->y, oponent->x);
+			spawn_explosion(explosions, oponent->y, oponent->x);
 			current = lstdel_relink(oponents, current, last);
 			(player->score)++;
 		}

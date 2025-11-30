@@ -9,7 +9,7 @@
 
 // CONSTS
 
-# define OBSTACLE_SPAWN_RATE 100   // 0 - 199      199 is the max rate
+# define OBSTACLE_SPAWN_RATE 150   // 0 - 199      199 is the max rate
 
 // STRUCTS
 

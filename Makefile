@@ -2,7 +2,7 @@
 
 NAME			=	ft_shmup
 CC				=	cc
-CFLAGS			=	-Wall -Wextra -O3
+CFLAGS			=	-Wall -Wextra -Werror -O3
 LDFLAGS			=	-lncurses
 MAKEFLAGS		+=	-j $$(nproc)
 DEPS			=	-MMD -MP
@@ -38,6 +38,8 @@ OBJECTS_SRC		:= objects/objects.c
 
 PROJECTILE_SRC	:= projectile/projectile.c
 
+EXPLOSION_SRC	:= explosion/explosion.c
+
 OBSTACLE_SRC	:= obstacle/obstacle.c
 
 OPONENTS_SRC	:= oponents/oponents.c
@@ -59,7 +61,8 @@ SRCS			:=	$(addprefix $(SRC_DIR), \
 					$(LINKED_LIST_SRC) \
 					$(OPONENTS_SRC) \
 					$(GAME_SRCS) \
-					$(OBSTACLE_SRC))
+					$(OBSTACLE_SRC) \
+					$(EXPLOSION_SRC))
 
 #-------------------------------- OBJECTS ------------------------------------#
 

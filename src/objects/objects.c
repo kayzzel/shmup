@@ -12,7 +12,6 @@
 
 #include "objects.h"
 #include "shmup.h"
-#include <ncurses.h>
 
 int	obj_move(int *row, int *col, char direction)
 {
