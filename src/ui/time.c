@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 11:08:38 by enchevri          #+#    #+#             */
-/*   Updated: 2025/11/30 11:53:28 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 16:38:23 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	print_time(t_game game)
 	int max_y, max_x;
 	int score_len;
 	char score_str[20];
-
 
 	getmaxyx(time_win, max_y, max_x);
 	mvwprintw(time_win, max_y / 2 - 1, max_x / 2 - 2, "TIME");
