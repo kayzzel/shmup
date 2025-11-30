@@ -25,11 +25,12 @@ typedef struct s_projectile
 	int		y;
 	char	icon;
 	char	direction;
+	int		color;
 }				t_projectile;
 
 // FUNCS
 
-void	throw_projectile(int row, int column, char icon, char direction, t_list **projectiles);
+void	throw_projectile(int row, int column, char icon, char direction, int color, t_list **projectiles);
 void	actualize_projectiles(t_list **projectiles, int counter);
 void	kill_projectile(t_list **projectiles, int row, int col);
 void	render_projectiles(t_list **projectiles);

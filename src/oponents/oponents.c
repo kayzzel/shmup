@@ -31,7 +31,7 @@ void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
 		oponent = (t_oponent *)current->content;
 		if ((rand() % 100 + 1) % ( 100 - SHOOTING_RATE) == 0)
 			throw_projectile((oponent->y), (oponent->x - 1), '-',
-				(oponent->direction), projectiles);
+				(oponent->direction), 4, projectiles);
 		if (obj_move(&(oponent->y), &(oponent->x), (oponent->direction)) == -1)
 			current = lstdel_relink(oponents, current, last);
 		else

@@ -64,7 +64,7 @@ void	kill_projectile(t_list **projectiles, int row, int col)
 	}
 }
 
-t_projectile	*new_projectile(int row, int col, char icon, char direction)
+t_projectile	*new_projectile(int row, int col, char icon, char direction, int color)
 {
 	t_projectile	*projectile;
 
@@ -75,11 +75,11 @@ t_projectile	*new_projectile(int row, int col, char icon, char direction)
 	projectile->y = row;
 	projectile->direction = direction;
 	projectile->icon = icon;
+	projectile->color = color;
 	return (projectile);
 }
 
-void	throw_projectile(int row, int column, char icon, char direction,
-		t_list **projectiles)
+void	throw_projectile(int row, int column, char icon, char direction, int color, t_list **projectiles)
 {
 	t_projectile	*projectile;
 	t_list			*list;
@@ -88,7 +88,7 @@ void	throw_projectile(int row, int column, char icon, char direction,
 	if (direction == 'l') column--;
 	if (direction == 'u') row--;
 	if (direction == 'd') row++;
-	projectile = new_projectile(row, column, icon, direction);
+	projectile = new_projectile(row, column, icon, direction, color);
 	if (!projectile)
 		return ;
 	list = ft_lstnew((void *)projectile);
@@ -113,7 +113,7 @@ void	render_projectiles(t_list **projectiles)
 	while (current)
 	{
 		projectile = (t_projectile *)current->content;
-		render_obj(projectile->y, projectile->x, projectile->icon, 4);
+		render_obj(projectile->y, projectile->x, projectile->icon, projectile->color);
 		last = current;
 		current = current->next;
 	}
