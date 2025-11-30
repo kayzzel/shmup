@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:50:08 by enchevri          #+#    #+#             */
-/*   Updated: 2025/11/30 17:54:30 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 19:44:42 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@
 # define MIN_WIDTH 80
 # define MIN_HEIGHT 20
 # define FRAME_RATE 60
+# define BOX_SIZE 10
 
 // GLOBAL
 
-extern WINDOW *stats_win, *game_win;
+extern WINDOW *stats_win, *game_win, *start_win, *finish_win;
 extern WINDOW *lives_win, *score_win, *time_win;
 
 // STRUCTS
@@ -43,10 +44,13 @@ typedef struct s_game
 	bool		fps_on;
 	t_player	player;
 	char		*time;
+	int			time_m;
+	int			time_s;
 }				t_game;
 
 // FUNCS
 
 void			init(void);
+void			finish(t_game game);
 
 #endif

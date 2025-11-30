@@ -41,7 +41,8 @@ OPONENTS_SRC	:= oponents/oponents.c
 
 PLAYER_SRCS		:=	player/player.c
 
-GAME_SRCS		:=	game/game_loop.c
+GAME_SRCS		:=	game/game_loop.c \
+					game/finish.c
 
 MAIN_SRCS		:=	main.c
 
