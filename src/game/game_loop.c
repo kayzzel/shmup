@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:38:26 by gabach            #+#    #+#             */
-/*   Updated: 2025/11/30 18:54:44 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 22:26:01 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ int	game_loop(t_game *game)
 	projectiles = NULL;
 	oponents = NULL;
 	obstacles = NULL;
-	game->player = init_player();
-	while (ch != 'q' && game->player.lives >= 0)
+	while (game->player.lives >= 0)
 	{
 		ch = getch();
+		if (ch == 27)
+			menu(*game);
 		actualize_projectiles(&projectiles, counter);
 		actualize_oponent(&oponents, counter, &projectiles);
 		actualize_obstacles(&obstacles, counter);

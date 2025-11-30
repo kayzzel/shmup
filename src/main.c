@@ -6,24 +6,19 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 18:46:08 by enchevri          #+#    #+#             */
-/*   Updated: 2025/11/30 19:43:09 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 22:25:37 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shmup.h"
 #include "player.h"
-
-void start(void)
-{
-
-}
+#include "shmup.h"
 
 int	main(void)
 {
 	t_game	game;
 
-	init();
-	start();
+	init(&game);
+	menu(game);
 	game_loop(&game);
 	finish(game);
 	endwin();

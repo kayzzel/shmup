@@ -6,14 +6,14 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 11:00:17 by enchevri          #+#    #+#             */
-/*   Updated: 2025/11/30 19:46:56 by enchevri         ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 22:29:10 by enchevri         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shmup.h"
 #include <ncurses.h>
 
-WINDOW *stats_win, *game_win, *start_win, *finish_win;
+WINDOW *stats_win, *game_win, *menu_win, *finish_win;
 WINDOW *lives_win, *score_win, *time_win;
 
 void	init_colors(void)
@@ -30,9 +30,10 @@ void	init_colors(void)
 
 void	init_windows(void)
 {
-	start_win = subwin(stdscr, LINES, COLS, 0, 0);
-	finish_win = subwin(stdscr, LINES / 4, COLS / 4, LINES / 2 - LINES / 8, COLS
-			/ 2 - COLS / 8);
+	menu_win = subwin(stdscr, MIN_HEIGHT, MIN_WIDTH, (LINES - MIN_HEIGHT) / 2,
+			(COLS - MIN_WIDTH) / 2);
+	finish_win = subwin(stdscr, MIN_HEIGHT, MIN_WIDTH, (LINES - MIN_HEIGHT) / 2,
+			(COLS - MIN_WIDTH) / 2);
 	if (LINES % 3 != 0)
 		game_win = subwin(stdscr, LINES - 1, GAME_WIDTH, 0, STAT_WIDTH);
 	else
@@ -62,7 +63,7 @@ int	check_terminal_scale(void)
 	return (n);
 }
 
-void	init(void)
+void	init(t_game *game)
 {
 	initscr();
 	if (check_terminal_scale())
@@ -80,8 +81,10 @@ void	init(void)
 	init_windows();
 	initscr();
 	noecho();
-	timeout(0);
 	cbreak();
 	keypad(stdscr, true);
+	game->time_m = 0;
+	game->time_s = 0;
+	game->player = init_player();
 	curs_set(0);
 }

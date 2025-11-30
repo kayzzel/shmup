@@ -22,14 +22,15 @@ INCLUDES		= -I $(INCLUDE_DIR)
 
 #-------------------------------- SOURCE FILES -------------------------------#
 
-INIT_SRCS		:=	init/init.c
+INIT_SRCS	:=	init/init.c
 
 UI_SRCS		:=	ui/fps.c \
 				ui/ui.c \
 				ui/scores.c \
 				ui/time.c \
 				ui/live.c \
-				ui/render_box.c
+				ui/render_box.c \
+				ui/menu.c
 
 LINKED_LIST_SRC	:=	linked_list/linked_list.c
 
