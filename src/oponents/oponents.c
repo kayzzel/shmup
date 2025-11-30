@@ -20,7 +20,7 @@ void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
 	t_list		*current;
 	t_oponent	*oponent;
 
-	if (counter % (200 - SPAWN_RATE) == 0)
+	if (counter % (200 - OPONENT_SPAWN_RATE) == 0)
 		spawn_oponent(oponents);
 	if (*oponents == NULL || !oponents || counter % 10 != 0)
 		return ;
