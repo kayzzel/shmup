@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "shmup.h"
+#include <ncurses.h>
 
 WINDOW *stats_win, *game_win, *start_win, *finish_win;
 WINDOW *lives_win, *score_win, *time_win;
@@ -24,6 +25,7 @@ void	init_colors(void)
 	init_pair(3, COLOR_RED, COLOR_BLACK);
 	init_pair(4, COLOR_RED, COLOR_BLACK);
 	init_pair(5, COLOR_GREEN, COLOR_BLACK);
+	init_pair(6, COLOR_YELLOW, COLOR_BLACK);
 }
 
 void	init_windows(void)

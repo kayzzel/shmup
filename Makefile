@@ -29,13 +29,15 @@ UI_SRCS		:=	ui/fps.c \
 				ui/scores.c \
 				ui/time.c \
 				ui/live.c \
-				ui/render_box.c 
+				ui/render_box.c
 
 LINKED_LIST_SRC	:=	linked_list/linked_list.c
 
 OBJECTS_SRC		:= objects/objects.c
 
 PROJECTILE_SRC	:= projectile/projectile.c
+
+OBSTACLE_SRC	:= obstacle/obstacle.c
 
 OPONENTS_SRC	:= oponents/oponents.c
 
@@ -55,7 +57,8 @@ SRCS			:=	$(addprefix $(SRC_DIR), \
 					$(PROJECTILE_SRC) \
 					$(LINKED_LIST_SRC) \
 					$(OPONENTS_SRC) \
-					$(GAME_SRCS))
+					$(GAME_SRCS) \
+					$(OBSTACLE_SRC))
 
 #-------------------------------- OBJECTS ------------------------------------#
 
