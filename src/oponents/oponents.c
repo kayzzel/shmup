@@ -20,7 +20,7 @@ void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
 	t_list		*current;
 	t_oponent	*oponent;
 
-	if (counter % (100) == 0)
+	if (counter % (200 - SPAWN_RATE) == 0)
 		spawn_oponent(oponents);
 	if (*oponents == NULL || !oponents || counter % 10 != 0)
 		return ;
@@ -29,7 +29,7 @@ void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
 	while (current)
 	{
 		oponent = (t_oponent *)current->content;
-		if ((rand() % 100 + 1) % 20 == 0)
+		if ((rand() % 100 + 1) % ( 100 - SHOOTING_RATE) == 0)
 			throw_projectile((oponent->y), (oponent->x - 1), '-',
 				(oponent->direction), projectiles);
 		if (obj_move(&(oponent->y), &(oponent->x), (oponent->direction)) == -1)

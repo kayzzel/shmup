@@ -8,6 +8,11 @@
 #include "player.h"
 #include "projectile.h"
 
+// CONSTS
+
+# define SPAWN_RATE 150 //   0 - 199      199 is the max rate
+# define SHOOTING_RATE 95 // 0 - 99        99 is the max rate
+
 // STRUCTS
 
 typedef struct s_oponent
