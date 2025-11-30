@@ -12,6 +12,7 @@
 
 #include "player.h"
 #include "objects.h"
+#include <stdlib.h>
 #include "projectile.h"
 
 void	actualize_projectiles(t_list **projectiles, int counter)
@@ -82,7 +83,10 @@ void	throw_projectile(int row, int column, char icon, char direction, t_list **p
 		return ;
 	list = ft_lstnew((void*)projectile);
 	if (!list)
+	{
+		free(projectile);
 		return ;
+	}
 	ft_lstadd_back(projectiles, list);
 }
 
@@ -92,7 +96,7 @@ void	render_projectiles(t_list **projectiles)
 	t_list		*current;
 	t_projectile	*projectile;
 
-	if (*projectiles == NULL || !projectiles)
+	if (!projectiles || *projectiles == NULL)
 		return ;
 	current = *projectiles;
 	last = NULL;

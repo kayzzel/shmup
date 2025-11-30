@@ -151,8 +151,7 @@ t_list	*lstdel_relink(t_list **lst, t_list *current, t_list *last)
 {
 	if (last)
 	{
-		last->next = NULL;
-		ft_lstadd_back(lst, current->next);
+		last->next = current->next;
 		ft_lstdelone(current, free);
 		current = last->next;
 	}

@@ -12,7 +12,6 @@
 
 #include "objects.h"
 #include "shmup.h"
-#include <ncurses.h>
 
 int	obj_move(int *row, int *col, char direction)
 {
@@ -20,7 +19,7 @@ int	obj_move(int *row, int *col, char direction)
 	getmaxyx(game_win, end_rows, end_cols);
 	if (direction == 'r')
 	{
-		if (*col == end_cols - 1) return (-1);
+		if (*col == end_cols - 2) return (-1);
 		(*col)++;
 	}
 	else if (direction == 'l')
@@ -35,7 +34,7 @@ int	obj_move(int *row, int *col, char direction)
 	}
 	else if (direction == 'd')
 	{
-		if (*row == end_rows - 1) return (-1) ;
+		if (*row == end_rows - 2) return (-1) ;
 		(*row)++;
 	}
 	return (0);
@@ -46,14 +45,13 @@ int	render_obj(int row, int col, char icon)
 	chtype	ch;
 	char	c;
 
-	wmove(game_win, row, col);
 	ch = mvwinch(game_win, row, col);
 	c = ch & A_CHARTEXT;
 	if (c != ' ')
 	{
-		addch('#');
+		mvwprintw(game_win, row, col, "%c", icon);
 		return (-1);
 	}
-	addch(icon);
+	mvwprintw(game_win, row, col, "%c", icon);
 	return (0);
 }

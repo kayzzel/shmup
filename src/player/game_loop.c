@@ -6,7 +6,7 @@
 /*   By: enchevri <enchevri@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 15:38:26 by gabach            #+#    #+#             */
-/*   Updated: 2025/11/30 10:13:32 by gabach           ###   ########lyon.fr   */
+/*   Updated: 2025/11/30 13:21:48 by gabach           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,18 @@ int	game_loop(t_player *player)
 	{
 		ch = getch();
 
+		actualize_projectiles(&projectiles, counter);
+		actualize_oponent(&oponents, counter, &projectiles);
+		player_action(ch, player, &projectiles);
+
 		werase(game_win);
 
 		wattron(game_win, COLOR_PAIR(1));
 		box(game_win, ACS_VLINE, ACS_HLINE);
 		wattroff(game_win, COLOR_PAIR(1));
 
-		actualize_projectiles(&projectiles, counter);
-		//render_projectiles(&projectiles);
-
-		actualize_oponent(&oponents, counter, &projectiles);
-		//render_oponents(&oponents, &projectiles, player);
-
-		player_action(ch, player, &projectiles);
+		render_projectiles(&projectiles);
+		render_oponents(&oponents, &projectiles, player);
 		render_obj(player->y, player->x, player->icon);
 
 		print_fps(ch);

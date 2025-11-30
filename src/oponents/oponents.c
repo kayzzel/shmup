@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "objects.h"
+#include <stdlib.h>
 #include "oponents.h"
 
 void	actualize_oponent(t_list **oponents, int counter, t_list **projectiles)
@@ -79,12 +80,16 @@ void	spawn_oponent(t_list **oponents)
 	t_oponent	*oponent;
 	t_list		*list;
 
-	oponent = new_oponent(((rand() % (END_LINE - START_LINE)) + START_LINE), END_COL, '&', 'l');
+	//oponent = new_oponent(((rand() % (END_LINE - START_LINE)) + START_LINE), END_COL, '&', 'l');
+	oponent = new_oponent(1, 25, '&', 'l');
 	if (!oponent)
 		return ;
 	list = ft_lstnew((void*)oponent);
 	if (!list)
+	{
+		free(oponent);
 		return ;
+	}
 	ft_lstadd_back(oponents, list);
 }
 
@@ -94,7 +99,7 @@ void	render_oponents(t_list **oponents, t_list **projectiles, t_player *player)
 	t_list		*current;
 	t_oponent	*oponent;
 
-	if (*oponents == NULL || !oponents)
+	if (!oponents || *oponents == NULL)
 		return ;
 	current = *oponents;
 	last = NULL;
