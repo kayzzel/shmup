@@ -113,7 +113,7 @@ void	render_projectiles(t_list **projectiles)
 	while (current)
 	{
 		projectile = (t_projectile *)current->content;
-		render_obj(projectile->y, projectile->x, projectile->icon, 2);
+		render_obj(projectile->y, projectile->x, projectile->icon, 4);
 		last = current;
 		current = current->next;
 	}

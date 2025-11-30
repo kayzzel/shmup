@@ -18,9 +18,11 @@ WINDOW *lives_win, *score_win, *time_win;
 void	init_colors(void)
 {
 	start_color();
+	init_pair(0, COLOR_WHITE, COLOR_BLACK);
 	init_pair(1, COLOR_WHITE, COLOR_WHITE);
 	init_pair(2, COLOR_BLACK, COLOR_WHITE);
 	init_pair(3, COLOR_RED, COLOR_RED);
+	init_pair(4, COLOR_RED, COLOR_BLACK);
 }
 
 void	init_windows(void)

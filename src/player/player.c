@@ -68,7 +68,7 @@ void	player_action(int c, t_player *player, t_list **projectile)
 
 void	render_player(t_player *player, t_list **projectiles, t_list **oponents)
 {
-	if (render_obj(player->y, player->x, player->icon, 2) == -1)
+	if (render_obj(player->y, player->x, player->icon, 0) == -1)
 	{
 		kill_projectile(projectiles, player->y, player->x);
 		kill_oponent(oponents, player->y, player->x);

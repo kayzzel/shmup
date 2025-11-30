@@ -49,14 +49,9 @@ int	render_obj(int row, int col, char icon, int color)
 	ch = mvwinch(game_win, row, col);
 	c = ch & A_CHARTEXT;
 	if (c != ' ')
-	{
-		wattron(game_win, color);
-		mvwprintw(game_win, row, col, "#");
-		wattroff(game_win, color);
 		return (-1);
-	}
-	wattron(game_win, color);
+	wattron(game_win, COLOR_PAIR(color));
 	mvwprintw(game_win, row, col, "%c", icon);
-	wattroff(game_win, color);
+	wattroff(game_win, COLOR_PAIR(color));
 	return (0);
 }
