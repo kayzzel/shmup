@@ -1,6 +1,7 @@
 # ft_shmup
 
 **Project done with @Primoux for 42 rushe "ft_shmup"**
+**If you want the version that we did for the project go check his repo. This one will be modified**
 
 ## 📦 Clone
 
