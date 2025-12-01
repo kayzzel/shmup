@@ -24,6 +24,7 @@ make
 | **D** | Move right |
 | **S** | Move down |
 | **A** | Move left |
+| **SPACE** | SHOOT |
 | **ESC** | Pause menu |
 
 ## 🎯 Goal
