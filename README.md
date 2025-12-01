@@ -4,17 +4,17 @@
 
 ## 📦 Clone
 
-\`\`\`sh
+```sh
 git clone https://github.com/kayzzel/shmup.git
-\`\`\`
+```
 
 ## ▶️ Run
 
-\`\`\`sh
+```sh
 cd shmup
 make
 ./ft_shmup
-\`\`\`
+```
 
 ## 🎮 Controls
 
