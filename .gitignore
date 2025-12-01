@@ -1,0 +1,4 @@
+ft_shmup
+.build/
+*.valgrind
+*.diff
